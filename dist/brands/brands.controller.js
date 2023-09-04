@@ -28,7 +28,7 @@ let BrandsController = class BrandsController {
         return this.brandsService.findAll();
     }
     findOne(id) {
-        return this.brandsService.findOne(+id);
+        return this.brandsService.findOne(id);
     }
     update(id, updateBrandDto) {
         return this.brandsService.update(+id, updateBrandDto);

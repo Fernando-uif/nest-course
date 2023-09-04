@@ -10,23 +10,7 @@ exports.CarsService = void 0;
 const common_1 = require("@nestjs/common");
 let CarsService = class CarsService {
     constructor() {
-        this.cars = [
-            {
-                id: 1,
-                brand: 'Toyota',
-                model: 'Corolla',
-            },
-            {
-                id: 2,
-                brand: 'Honda',
-                model: 'Civic',
-            },
-            {
-                id: 3,
-                brand: 'Jeep',
-                model: 'Cherokee',
-            },
-        ];
+        this.cars = [];
     }
     findAll() {
         return this.cars;

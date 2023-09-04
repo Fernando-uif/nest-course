@@ -9,14 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateBrandDto = void 0;
-const class_validator_1 = require("class-validator");
-class UpdateBrandDto {
-}
+exports.SeedController = void 0;
+const common_1 = require("@nestjs/common");
+const seed_service_1 = require("./seed.service");
+let SeedController = class SeedController {
+    constructor(seedService) {
+        this.seedService = seedService;
+    }
+    runSeed() {
+        return this.seedService.populateDB();
+    }
+};
 __decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.MinLength)(1),
-    __metadata("design:type", String)
-], UpdateBrandDto.prototype, "name", void 0);
-exports.UpdateBrandDto = UpdateBrandDto;
-//# sourceMappingURL=update-brand.dto.js.map
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], SeedController.prototype, "runSeed", null);
+SeedController = __decorate([
+    (0, common_1.Controller)('seed'),
+    __metadata("design:paramtypes", [seed_service_1.SeedService])
+], SeedController);
+exports.SeedController = SeedController;
+//# sourceMappingURL=seed.controller.js.map

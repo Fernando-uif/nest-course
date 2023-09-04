@@ -4,9 +4,9 @@ import { UpdateBrandDto } from './dto/update-brand.dto';
 export declare class BrandsController {
     private readonly brandsService;
     constructor(brandsService: BrandsService);
-    create(createBrandDto: CreateBrandDto): string;
-    findAll(): string;
-    findOne(id: string): string;
+    create(createBrandDto: CreateBrandDto): import("./entities/brand.entity").Brand;
+    findAll(): import("./entities/brand.entity").Brand[];
+    findOne(id: string): import("./entities/brand.entity").Brand;
     update(id: string, updateBrandDto: UpdateBrandDto): string;
     remove(id: string): string;
 }

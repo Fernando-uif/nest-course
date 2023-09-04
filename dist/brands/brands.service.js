@@ -8,15 +8,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BrandsService = void 0;
 const common_1 = require("@nestjs/common");
+const uuid_1 = require("uuid");
 let BrandsService = class BrandsService {
+    constructor() {
+        this.brands = [
+            {
+                id: (0, uuid_1.v4)(),
+                name: 'Toyota',
+                createdAt: new Date().getDate(),
+            },
+        ];
+    }
     create(createBrandDto) {
-        return 'This action adds a new brand';
+        const car = {
+            id: (0, uuid_1.v4)(),
+            name: createBrandDto.name.toLowerCase(),
+            createdAt: new Date().getDate(),
+        };
+        this.brands.push(car);
+        return car;
     }
     findAll() {
-        return `This action returns all brands`;
+        return this.brands;
     }
     findOne(id) {
-        return `This action returns a #${id} brand`;
+        const car = this.brands.find((car) => car.id === id);
+        if (!car)
+            throw new common_1.NotFoundException(`This car does't exist: ${id}`);
+        return car;
     }
     update(id, updateBrandDto) {
         return `This action updates a #${id} brand`;
